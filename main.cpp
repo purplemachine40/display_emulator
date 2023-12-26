@@ -132,20 +132,25 @@ int main(int argc, char* argv[])
     SDL_SetRenderDrawColor(renderer, 0xff, 0xaa, 0x00, 0xFF);
     SDL_RenderFillRect(renderer, &rect);
 
-    SDL_Texture* pTexture = IMG_LoadTexture(renderer, "./img/select.png");
+    SDL_Texture* pTexture = IMG_LoadTexture(renderer, "./img/select_btn.png");
     if (pTexture == NULL)
     {
         printf("Error loading button texture.\n");
         return 1;
     }
     
-    rect.x = BUTTON_X;
-    rect.y = BUTTON_Y;
-    rect.w = BUTTON_WIDTH;
-    rect.h = BUTTON_HEIGHT;
-    //SDL_SetRenderDrawColor(renderer, 0x99, 0x00, 0x00, 0xFF);
-    //SDL_RenderFillRect(renderer, &rect);
-    SDL_RenderCopy(renderer, pTexture, NULL, &rect);
+    SDL_Rect selectSourceRect;
+    selectSourceRect.x = 0;
+    selectSourceRect.y = 0;
+    selectSourceRect.w = 80;
+    selectSourceRect.h = 60;
+
+    SDL_Rect selectDestRect;
+    selectDestRect.x = BUTTON_X;
+    selectDestRect.y = BUTTON_Y;
+    selectDestRect.w = BUTTON_WIDTH;
+    selectDestRect.h = BUTTON_HEIGHT;
+    SDL_RenderCopy(renderer, pTexture, &selectSourceRect, &selectDestRect);
 
     SDL_RenderPresent(renderer);
 
@@ -170,8 +175,19 @@ int main(int argc, char* argv[])
                 if (isPointInButton(mouseX, mouseY))
                 {
                     printf("Button was Clicked!\n");
+                    selectSourceRect.x = 80;
+                    SDL_RenderCopy(renderer, pTexture, &selectSourceRect, &selectDestRect);
+                    SDL_RenderPresent(renderer);
                 }
             }
+            break;
+            case SDL_MOUSEBUTTONUP:
+            {
+                selectSourceRect.x = 0;
+                SDL_RenderCopy(renderer, pTexture, &selectSourceRect, &selectDestRect);
+                SDL_RenderPresent(renderer);
+            }
+            break;
             }
         }
     }
