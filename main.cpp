@@ -1,4 +1,5 @@
 #include <SDL.h>
+#include <SDL_image.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "screen_data.h"
@@ -110,6 +111,12 @@ int main(int argc, char* argv[])
         return 1;
     }
 
+    if (IMG_Init(IMG_INIT_PNG) == 0)
+    {
+        printf("Error initializing SDL_image: %s\n", IMG_GetError());
+        return 1;
+    }
+
     // A flag to indicate if the program is running
     int running = 1;
 
@@ -125,12 +132,20 @@ int main(int argc, char* argv[])
     SDL_SetRenderDrawColor(renderer, 0xff, 0xaa, 0x00, 0xFF);
     SDL_RenderFillRect(renderer, &rect);
 
+    SDL_Texture* pTexture = IMG_LoadTexture(renderer, "./img/select.png");
+    if (pTexture == NULL)
+    {
+        printf("Error loading button texture.\n");
+        return 1;
+    }
+    
     rect.x = BUTTON_X;
     rect.y = BUTTON_Y;
     rect.w = BUTTON_WIDTH;
     rect.h = BUTTON_HEIGHT;
-    SDL_SetRenderDrawColor(renderer, 0x99, 0x00, 0x00, 0xFF);
-    SDL_RenderFillRect(renderer, &rect);
+    //SDL_SetRenderDrawColor(renderer, 0x99, 0x00, 0x00, 0xFF);
+    //SDL_RenderFillRect(renderer, &rect);
+    SDL_RenderCopy(renderer, pTexture, NULL, &rect);
 
     SDL_RenderPresent(renderer);
 
@@ -162,10 +177,10 @@ int main(int argc, char* argv[])
     }
 
     // Destroy the renderer and window
+    SDL_DestroyTexture(pTexture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
-
-    // Quit SDL
+    IMG_Quit();
     SDL_Quit();
 
     return 0;
