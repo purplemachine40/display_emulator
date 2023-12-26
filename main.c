@@ -74,7 +74,7 @@ void render_pixels(SDL_Renderer* renderer)
     // SDL_RenderPresent(renderer);
 }
 
-bool isPointInButton(int x, int y)
+uint8_t isPointInButton(int x, int y)
 {
     return (x >= BUTTON_X && x <= BUTTON_X + BUTTON_WIDTH &&
         y >= BUTTON_Y && y <= BUTTON_Y + BUTTON_HEIGHT);
