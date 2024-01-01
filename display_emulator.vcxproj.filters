@@ -21,9 +21,39 @@
     <ClCompile Include="screen_data.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="buttons.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="display.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="event_generator.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="screen_data.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="buttons.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common_types.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_common.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="display.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="event_generator.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

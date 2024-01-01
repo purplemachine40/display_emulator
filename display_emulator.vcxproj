@@ -133,11 +133,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="buttons.c" />
+    <ClCompile Include="display.c" />
+    <ClCompile Include="event_generator.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="screen_data.c" />
+    <ClCompile Include="ui.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="buttons.h" />
+    <ClInclude Include="common_types.h" />
+    <ClInclude Include="display.h" />
+    <ClInclude Include="event_generator.h" />
     <ClInclude Include="screen_data.h" />
+    <ClInclude Include="ui.h" />
+    <ClInclude Include="ui_common.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="img\select_clicked.png" />
