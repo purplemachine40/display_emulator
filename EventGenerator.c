@@ -1,9 +1,12 @@
 #include "buttons.h"
-#include "common_types.h"
-#include "event_generator.h"
+#include "CommonTypes.h"
+#include "EventGenerator.h"
 #include <SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
+#define REFRESH_RATE 500
 
 typedef struct _TS_BTN_EVENT_CROSS
 {
@@ -20,9 +23,20 @@ static TS_BTN_EVENT_CROSS btnEventCross[] =
     {b_LEFT, se_LEFT_BTN_PRESSED},
     {b_RIGHT, se_RIGHT_BTN_PRESSED},
     {b_CENTER, se_CENTER_BTN_PRESSED},
+    {b_POWER, se_POWER_BTN_PRESSED},
+    {b_BACK, se_BACK_BTN_PRESSED},
 };
 
+static clock_t refreshTimer;
+
 static void AddBtnEvent(TE_BUTTONS btn);
+static uint8_t ShouldRefreshDisplay(void);
+
+
+void InitEventGenerator(void)
+{
+    refreshTimer = clock();
+}
 
 
 void UpdateEvents(void)
@@ -60,14 +74,25 @@ void UpdateEvents(void)
         break;
         }
     }
+
+    if (ShouldRefreshDisplay())
+    {
+        sysEvent = se_REFRESH_DISPLAY;
+        refreshTimer = clock();
+    }
 }
 
 TE_SYSTEM_EVENT GetSysEvent(void)
 {
-    TE_SYSTEM_EVENT evt = sysEvent;
-    sysEvent = se_NONE;
-    return evt;
+    return sysEvent;    
 }
+
+
+void ClearSysEvent(void)
+{
+    sysEvent = se_NONE;
+}
+
 
 TE_EMULATOR_EVENT GetEmulatorEvent(void)
 {
@@ -88,4 +113,11 @@ static void AddBtnEvent(TE_BUTTONS btn)
             return;
         }
     }
+}
+
+
+static uint8_t ShouldRefreshDisplay(void)
+{
+    clock_t curTime = clock();
+    return ((sysEvent == se_NONE) && ((curTime - REFRESH_RATE) > refreshTimer));
 }

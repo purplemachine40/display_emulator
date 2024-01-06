@@ -1,11 +1,11 @@
 #include "buttons.h"
-#include "common_types.h"
-#include "display.h"
-#include "screen_data.h"
+#include "CommonTypes.h"
+#include "Display.h"
+#include "ScreenData.h"
 #include <SDL_image.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "ui_common.h"
+#include "UiCommon.h"
 
 static SDL_Window* window;
 static SDL_Renderer* pRenderer;
@@ -14,14 +14,12 @@ static uint8_t InitializeButtons(SDL_Renderer* pRenderer);
 
 uint8_t InitUi(void)
 {
-    // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
         printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
         return FALSE;
     }
-
-    // Create a window
+ 
     window = SDL_CreateWindow(
         "Grayscale LCD Display Emulator",
         SDL_WINDOWPOS_UNDEFINED,
@@ -29,13 +27,13 @@ uint8_t InitUi(void)
         WINDOW_WIDTH,
         WINDOW_HEIGHT,
         SDL_WINDOW_SHOWN);
+
     if (window == NULL)
     {
         printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
         return FALSE;
     }
 
-    // Create a renderer
     pRenderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     if (pRenderer == NULL)
     {
@@ -82,20 +80,8 @@ void DrawUI(void)
     rect.h = WINDOW_HEIGHT - DISPLAY_HEIGHT;
     SDL_SetRenderDrawColor(pRenderer, 0xff, 0xaa, 0x00, 0xFF);
     SDL_RenderFillRect(pRenderer, &rect);
-
     DrawAllButtons();
-
     SDL_RenderPresent(pRenderer);
-}
-
-SDL_Window* GetWindow(void)
-{
-    return window;
-}
-
-SDL_Renderer* GetRenderer(void)
-{
-    return pRenderer;
 }
 
 
@@ -127,6 +113,16 @@ static uint8_t InitializeButtons(SDL_Renderer* pRenderer)
     btnSetup.destRect[b_CENTER].y = SELECT_BUTTON_Y;
     btnSetup.destRect[b_CENTER].w = BUTTON_WIDTH;
     btnSetup.destRect[b_CENTER].h = BUTTON_HEIGHT;
+
+    btnSetup.destRect[b_POWER].x = POWER_BUTTON_X;
+    btnSetup.destRect[b_POWER].y = POWER_BUTTON_Y;
+    btnSetup.destRect[b_POWER].w = BUTTON_WIDTH;
+    btnSetup.destRect[b_POWER].h = BUTTON_HEIGHT;
+
+    btnSetup.destRect[b_BACK].x = BACK_BUTTON_X;
+    btnSetup.destRect[b_BACK].y = BACK_BUTTON_Y;
+    btnSetup.destRect[b_BACK].w = BUTTON_WIDTH;
+    btnSetup.destRect[b_BACK].h = BUTTON_HEIGHT;
 
     btnSetup.pRender = pRenderer;
 

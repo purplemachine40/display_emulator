@@ -133,21 +133,44 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="buttons.c" />
-    <ClCompile Include="display.c" />
-    <ClCompile Include="event_generator.c" />
+    <ClCompile Include="Buttons.c" />
+    <ClCompile Include="c_state_machine\c_state_machine.c" />
+    <ClCompile Include="c_state_machine\State.c" />
+    <ClCompile Include="c_state_machine\StateMainScreen.c" />
+    <ClCompile Include="c_state_machine\StateMenu.c" />
+    <ClCompile Include="c_state_machine\StateOff.c" />
+    <ClCompile Include="c_state_machine\StateOn.c" />
+    <ClCompile Include="c_state_machine\StateStartup.c" />
+    <ClCompile Include="c_state_machine\StateSubMenu.c" />
+    <ClCompile Include="c_state_machine\StateSystem.c" />
+    <ClCompile Include="c_state_machine\StateTopMenu.c" />
+    <ClCompile Include="Display.c" />
+    <ClCompile Include="EventGenerator.c" />
     <ClCompile Include="main.c" />
-    <ClCompile Include="screen_data.c" />
-    <ClCompile Include="ui.c" />
+    <ClCompile Include="ScreenData.c" />
+    <ClCompile Include="Ui.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="buttons.h" />
-    <ClInclude Include="common_types.h" />
-    <ClInclude Include="display.h" />
-    <ClInclude Include="event_generator.h" />
-    <ClInclude Include="screen_data.h" />
-    <ClInclude Include="ui.h" />
-    <ClInclude Include="ui_common.h" />
+    <ClInclude Include="Buttons.h" />
+    <ClInclude Include="CommonTypes.h" />
+    <ClInclude Include="c_state_machine\Common.h" />
+    <ClInclude Include="c_state_machine\CustomTypes.h" />
+    <ClInclude Include="c_state_machine\c_state_machine.h" />
+    <ClInclude Include="c_state_machine\EventGenerator.h" />
+    <ClInclude Include="c_state_machine\State.h" />
+    <ClInclude Include="c_state_machine\StateMainScreen.h" />
+    <ClInclude Include="c_state_machine\StateMenu.h" />
+    <ClInclude Include="c_state_machine\StateOff.h" />
+    <ClInclude Include="c_state_machine\StateOn.h" />
+    <ClInclude Include="c_state_machine\StateStartup.h" />
+    <ClInclude Include="c_state_machine\StateSubMenu.h" />
+    <ClInclude Include="c_state_machine\StateSystem.h" />
+    <ClInclude Include="c_state_machine\StateTopMenu.h" />
+    <ClInclude Include="Display.h" />
+    <ClInclude Include="EventGenerator.h" />
+    <ClInclude Include="ScreenData.h" />
+    <ClInclude Include="Ui.h" />
+    <ClInclude Include="UiCommon.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="img\select_clicked.png" />

@@ -1,7 +1,7 @@
-#include "buttons.h"
-#include "common_types.h"
+#include "Buttons.h"
+#include "CommonTypes.h"
 #include <SDL_image.h>
-#include "ui_common.h"
+#include "UiCommon.h"
 
 #define ACTIVE_X 80
 #define UP_Y 0
@@ -9,6 +9,8 @@
 #define LEFT_Y 120
 #define RIGHT_Y 180
 #define CENTER_Y 240
+#define POWER_Y 300
+#define BACK_Y 360
 
 typedef struct _TS_BUTTON_DISP_INFO
 {
@@ -25,13 +27,15 @@ static TS_BUTTON_DISP_INFO btnDispInfo[b_TOTAL_BUTTONS] =
     {DOWN_Y, FALSE},
     {LEFT_Y, FALSE},
     {RIGHT_Y, FALSE},
-    {CENTER_Y, FALSE},
+    {CENTER_Y, FALSE},    
+    {POWER_Y, FALSE},
+    {BACK_Y, FALSE}
 };
 
 static void DrawButton(TE_BUTTONS btn, uint8_t isClicked);
 static void SetBtnX(uint8_t isClicked);
 static void RenderButton(uint8_t isClicked, SDL_Rect* pDestRect);
-static uint8_t isPointInButton(int x, int y, TE_BUTTONS btn);
+static uint8_t IsPointInButton(int x, int y, TE_BUTTONS btn);
 static uint8_t ButtonIsValid(TE_BUTTONS btn);
 
 uint8_t InitButtons(TS_BUTTON_SETTUP setup)
@@ -68,6 +72,7 @@ void SetButtonActive(TE_BUTTONS btn, uint8_t isActive)
     }
 }
 
+
 uint8_t HasActiveButton(void)
 {
     for (int i = 0; i < b_TOTAL_BUTTONS; i++)
@@ -79,6 +84,7 @@ uint8_t HasActiveButton(void)
     }
     return FALSE;
 }
+
 
 void ClearActiveButtons(void)
 {
@@ -102,7 +108,7 @@ TE_BUTTONS ButtonIsClicked(int mouseX, int mouseY)
 {
     for (int i = 0; i < b_TOTAL_BUTTONS; i++)
     {
-        if (isPointInButton(mouseX, mouseY, i))
+        if (IsPointInButton(mouseX, mouseY, i))
         {
             return i;
         }
@@ -133,7 +139,8 @@ static void RenderButton(uint8_t isClicked, SDL_Rect* pDestRect)
     SDL_RenderCopy(btnSetup.pRender, pTexture, &btnSourceRect, pDestRect);
 }
 
-static uint8_t isPointInButton(int x, int y, TE_BUTTONS btn)
+
+static uint8_t IsPointInButton(int x, int y, TE_BUTTONS btn)
 {
     if (ButtonIsValid(btn))
     {
@@ -142,6 +149,7 @@ static uint8_t isPointInButton(int x, int y, TE_BUTTONS btn)
     }
     return FALSE;
 }
+
 
 static uint8_t ButtonIsValid(TE_BUTTONS btn)
 {

@@ -9,6 +9,8 @@ typedef enum _TE_BUTTONS
     b_LEFT,
     b_RIGHT,
     b_CENTER,    
+    b_POWER,
+    b_BACK,
     b_TOTAL_BUTTONS,
     b_INVALID
 }TE_BUTTONS;

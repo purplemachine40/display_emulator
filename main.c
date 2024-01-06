@@ -1,6 +1,7 @@
-#include "event_generator.h"
+#include "c_state_machine/c_state_machine.h"
+#include "EventGenerator.h"
 #include <stdlib.h>
-#include "screen_data.h"
+#include "ScreenData.h"
 #include "ui.h"
 
 
@@ -13,16 +14,20 @@ int main(int argc, char* argv[])
         return 1;
     }
 
+    InitAppCode();
     DrawUI();
     
     while (running)
     {
         UpdateEvents();
+
         if (GetSysEvent() != se_NONE)
         {
-            SetScreenData(ds_MAIN_SCREEN);
-            DrawUI();            
+            DrawUI();
         }
+
+        AppCode();
+        ClearSysEvent();
 
         if (GetEmulatorEvent() == ee_QUIT)
         {

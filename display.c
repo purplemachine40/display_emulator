@@ -1,6 +1,6 @@
-#include "display.h"
-#include "ui_common.h"
-#include "screen_data.h"
+#include "Display.h"
+#include "UiCommon.h"
+#include "ScreenData.h"
 
 uint8_t dispBuf[DISPLAY_BUF_SIZE];
 
@@ -13,13 +13,11 @@ void DrawDisplay(SDL_Renderer* renderer)
     // Loop through the screen data array
     for (int i = 0; i < DISPLAY_WIDTH_VIRTUAL_PIXELS * DISPLAY_HEIGHT_VIRTUAL_PIXELS / 8; i++)
     {
-        // Get the current byte from the array
         unsigned char byte = dispBuf[i];
 
         // Loop through the bits in the byte
         for (int j = 0; j < 8; j++)
-        {
-            // Get the bit value (0 or 1)
+        {     
             int bit = (byte >> (7 - j)) & 1;
 
             // Calculate the pixel coordinates
@@ -33,7 +31,6 @@ void DrawDisplay(SDL_Renderer* renderer)
             rect.w = PIXEL_SIZE;
             rect.h = PIXEL_SIZE;
 
-            // Set the pixel color based on the bit value
             if (bit == 1)
             {
                 // Black pixel

@@ -4,12 +4,12 @@
 typedef enum _TE_DISPLAY_SCREENS
 {
     ds_WELCOME,
-    ds_MAIN_SCREEN,
-    ds_MENU_SCREEN,
+    ds_MAIN,
+    ds_MAIN_MENU,
+    ds_SUB_MENU,
+    ds_BLANK,
     ds_TOTAL_SCREENS
 }TE_DISPLAY_SCREENS;
 
 void SetScreenData(TE_DISPLAY_SCREENS screen);
 uint8_t* GetCurrentScreenData(void);
-uint8_t* GetZebraScreenData(void);
-uint8_t* GetMainScreenData(void);

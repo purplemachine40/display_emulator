@@ -13,48 +13,120 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\c_state_machine">
+      <UniqueIdentifier>{f46e943a-c24a-44de-9e36-507fff8b56f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="screen_data.c">
+    <ClCompile Include="ScreenData.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="buttons.c">
+    <ClCompile Include="Buttons.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ui.c">
+    <ClCompile Include="Ui.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="display.c">
+    <ClCompile Include="Display.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="event_generator.c">
+    <ClCompile Include="EventGenerator.c">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_state_machine\c_state_machine.c">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClCompile>
+    <ClCompile Include="c_state_machine\StateMenu.c">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClCompile>
+    <ClCompile Include="c_state_machine\StateOff.c">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClCompile>
+    <ClCompile Include="c_state_machine\StateOn.c">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClCompile>
+    <ClCompile Include="c_state_machine\StateSubMenu.c">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClCompile>
+    <ClCompile Include="c_state_machine\StateSystem.c">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClCompile>
+    <ClCompile Include="c_state_machine\StateTopMenu.c">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClCompile>
+    <ClCompile Include="c_state_machine\State.c">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClCompile>
+    <ClCompile Include="c_state_machine\StateMainScreen.c">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClCompile>
+    <ClCompile Include="c_state_machine\StateStartup.c">
+      <Filter>Source Files\c_state_machine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="screen_data.h">
+    <ClInclude Include="ScreenData.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="buttons.h">
+    <ClInclude Include="Buttons.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="common_types.h">
+    <ClInclude Include="CommonTypes.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="ui_common.h">
+    <ClInclude Include="UiCommon.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="ui.h">
+    <ClInclude Include="Ui.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="display.h">
+    <ClInclude Include="Display.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="event_generator.h">
+    <ClInclude Include="EventGenerator.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_state_machine\CustomTypes.h">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="c_state_machine\Common.h">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="c_state_machine\StateMainScreen.h">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="c_state_machine\StateMenu.h">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="c_state_machine\StateOff.h">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="c_state_machine\StateOn.h">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="c_state_machine\StateSubMenu.h">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="c_state_machine\StateSystem.h">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="c_state_machine\StateTopMenu.h">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="c_state_machine\c_state_machine.h">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="c_state_machine\EventGenerator.h">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="c_state_machine\State.h">
+      <Filter>Source Files\c_state_machine</Filter>
+    </ClInclude>
+    <ClInclude Include="c_state_machine\StateStartup.h">
+      <Filter>Source Files\c_state_machine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

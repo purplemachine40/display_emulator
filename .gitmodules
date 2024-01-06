@@ -1,0 +1,3 @@
+[submodule "c_state_machine"]
+	path = c_state_machine
+	url = git@github.com:purplemachine40/c_state_machine.git
